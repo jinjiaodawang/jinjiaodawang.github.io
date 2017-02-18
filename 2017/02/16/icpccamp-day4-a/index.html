@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  <meta charset="utf-8">
+  
+  <title>icpccamp day4 a | jinjiaodawang&#39;s blog</title>
+  <meta name="author" content="jinjiaodawang">
+  
+  <meta name="description" content="题意是有一个h*(a+b+c)的矩形，一个人从这个矩形的左下角走到右上角。矩形分为三个部分，ha、hb、h*c、在每个部分的速度分别为va、vb、vc。求最短时间。
+比赛的时候直接用三分套三分肛过去了。因为直接限制了迭代次数所以没有被卡掉。正解其实是把这个矩形看做三个折射率不同的物质，通过光路最短原">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="icpccamp day4 a"/>
+  <meta property="og:site_name" content="jinjiaodawang&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="jinjiaodawang&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-02-16T13:38:40.000Z"><a href="/2017/02/16/icpccamp-day4-a/">周四, 2月 16 2017, 9:38:40 晚上</a></time>
+
+  
+    <h1 class="title">icpccamp day4 a</h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>题意是有一个h*(a+b+c)的矩形，<br>一个人从这个矩形的左下角走到右上角。矩形分为三个部分，h<em>a、h</em>b、h*c、在每个部分的速度分别为va、vb、vc。求最短时间。</p>
+<p>比赛的时候直接用三分套三分肛过去了。因为直接限制了迭代次数所以没有被卡掉。正解其实是把这个矩形看做三个折射率不同的物质，通过光路最短原理可以得到两个介质交接的入射角。使得光线恰好射到右上角。</p>
+<p>而且叉姐一脸傲娇的说我卡掉了三分套三分的方法。特地纪念一下。</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">typedef <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line">using <span class="keyword">namespace</span> <span class="title">std</span>;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn 10001</span></div><div class="line"><span class="comment">#define mod 1000000007</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line"><span class="keyword">double</span> ans;</div><div class="line"><span class="keyword">double</span> h,a,b,c,va,vb,vc;</div><div class="line"><span class="keyword">double</span> dis(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> sqrt(x*x+y*y);</div><div class="line">&#125;</div><div class="line"><span class="keyword">double</span> calcal(<span class="keyword">double</span> temp,<span class="keyword">double</span> mid)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> dis(a,h-temp)/va+dis(b,temp-mid)/vb+dis(c,mid)/vc;</div><div class="line">&#125;</div><div class="line"><span class="keyword">double</span> l = <span class="number">0</span>;</div><div class="line"><span class="keyword">double</span> cal(<span class="keyword">double</span> mid)</div><div class="line">&#123;</div><div class="line">    l = <span class="number">0</span>;</div><div class="line">    <span class="keyword">double</span> r = mid;</div><div class="line">    <span class="keyword">int</span> t2 = <span class="number">20</span>;</div><div class="line">    <span class="keyword">double</span> temp = mid;</div><div class="line">    <span class="keyword">while</span> (t2--)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">double</span> mid = (l+r)/<span class="number">2</span>;</div><div class="line">        <span class="keyword">double</span> midmid = (mid+r)/<span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (calcal(temp,mid)&lt;=calcal(temp,midmid)) r = midmid;</div><div class="line">        <span class="keyword">else</span> l = mid;</div><div class="line">    &#125;</div><div class="line">    ans = min(ans,calcal(temp,l));</div><div class="line">    <span class="keyword">return</span> calcal(temp,l);</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> main()</div><div class="line">&#123;</div><div class="line"><span class="comment">//  freopen("in.txt","r",stdin);</span></div><div class="line"><span class="comment">//  freopen("out.txt","w",stdout);</span></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    scanf(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span> (T--)</div><div class="line">    &#123;</div><div class="line">        ans = <span class="number">1e20</span>;</div><div class="line">        scanf(<span class="string">"%lf%lf%lf%lf%lf%lf%lf"</span>,&amp;h,&amp;a,&amp;b,&amp;c,&amp;va,&amp;vb,&amp;vc);</div><div class="line">        <span class="keyword">double</span> l1 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">double</span> r1 = h;</div><div class="line">        <span class="keyword">int</span> t1 = <span class="number">20</span>;</div><div class="line">        <span class="keyword">while</span> (t1--)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">double</span> mid1 = (l1+r1) /<span class="number">2</span>;</div><div class="line">            <span class="keyword">double</span> midmid1 = (mid1+r1) /<span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (cal(mid1)&lt;=cal(midmid1)) r1 = midmid1;</div><div class="line">            <span class="keyword">else</span> l1  =  mid1;</div><div class="line">        &#125;</div><div class="line"><span class="comment">//        cout&lt;&lt;l1&lt;&lt;' '&lt;&lt;l&lt;&lt;endl;</span></div><div class="line">        printf(<span class="string">"%.10f\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">2</div><div class="line">10 3 4 3 1 1 1</div><div class="line">21 5 12 4 4 3 4</div><div class="line">*/</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+    <a href="/2017/02/17/icpccamp-day5-d/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+  
+  
+    <a href="/2017/02/16/icpccamp-day1-a/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2017/02/16/icpccamp-day4-a/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2017 jinjiaodawang
+  
+</div>
+Powered by <a href="http://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"jinjiaodawang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>

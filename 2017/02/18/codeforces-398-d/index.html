@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  <meta charset="utf-8">
+  
+  <title>codeforces #398 d | jinjiaodawang&#39;s blog</title>
+  <meta name="author" content="jinjiaodawang">
+  
+  <meta name="description" content="没什么好说的 就是二分
+刚比完就调完，日了狗了。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="codeforces #398 d"/>
+  <meta property="og:site_name" content="jinjiaodawang&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="jinjiaodawang&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-02-18T13:11:34.000Z"><a href="/2017/02/18/codeforces-398-d/">周六, 2月 18 2017, 9:11:34 晚上</a></time>
+
+  
+    <h1 class="title">codeforces #398 d</h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>没什么好说的 就是二分</p>
+<p>刚比完就调完，日了狗了。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">typedef long long ll;</div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn 1000100</span></div><div class="line"><span class="comment">#define mod 1000000007</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line"><span class="keyword">int</span> n,<span class="keyword">m</span>,k;</div><div class="line"><span class="keyword">int</span> a[maxn];</div><div class="line"><span class="keyword">int</span> b[maxn];</div><div class="line"><span class="keyword">int</span> <span class="keyword">s</span>[maxn&lt;&lt;<span class="number">1</span>];</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> b;</div><div class="line">    <span class="keyword">int</span> id;</div><div class="line">&#125;;</div><div class="line">node N[maxn];</div><div class="line">bool cmp (node a,node b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a.b&gt;b.b;</div><div class="line">&#125;</div><div class="line">bool judge(<span class="keyword">int</span> mid)</div><div class="line">&#123;</div><div class="line">    clr(<span class="keyword">s</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">        <span class="keyword">s</span>[a[i]]++;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=mid;i++)</div><div class="line">        <span class="keyword">s</span>[b[i]]++;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=n+<span class="keyword">m</span>; i++)</div><div class="line">        <span class="keyword">s</span>[i] += <span class="keyword">s</span>[i-<span class="number">1</span>];</div><div class="line"><span class="regexp">//</span>    <span class="keyword">if</span> (mid ==<span class="number">6</span> )</div><div class="line">//        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=<span class="number">10</span>;i++)</div><div class="line">//        cout&lt;&lt;<span class="keyword">s</span>[i]&lt;&lt;endl;</div><div class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i&lt;=n+<span class="keyword">m</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">s</span>[i]&gt;(i+<span class="number">1</span>)*k) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> main()</div><div class="line">&#123;</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,stdout);</div><div class="line">    scanf(<span class="string">"%d%d%d"</span>,&amp;n,&amp;<span class="keyword">m</span>,&amp;k);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">    &#123;</div><div class="line">        scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">        <span class="keyword">if</span> (a[i]&gt;n+<span class="keyword">m</span>) a[i] = n+<span class="keyword">m</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="keyword">m</span>; i++)</div><div class="line">    &#123;</div><div class="line">        scanf(<span class="string">"%d"</span>,&amp;b[i]);</div><div class="line">        <span class="keyword">if</span> (b[i]&gt;n+<span class="keyword">m</span>) b[i] = n+<span class="keyword">m</span>;</div><div class="line">        N[i].b = b[i];</div><div class="line">        N[i].id = i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">sort</span>(b+<span class="number">1</span>,b+<span class="keyword">m</span>+<span class="number">1</span>);</div><div class="line">    <span class="keyword">reverse</span>(b+<span class="number">1</span>,b+<span class="keyword">m</span>+<span class="number">1</span>);</div><div class="line">    <span class="keyword">if</span> (!judge(<span class="number">0</span>))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> r = <span class="keyword">m</span>+<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (r&gt;l+<span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (judge(mid)) l = mid;</div><div class="line">        <span class="keyword">else</span> r = mid;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">printf</span>(<span class="string">"%d\n"</span>,l);</div><div class="line">    <span class="keyword">sort</span>(N+<span class="number">1</span>,N+<span class="keyword">m</span>+<span class="number">1</span>,cmp);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=l; i++)</div><div class="line">        <span class="keyword">printf</span>(<span class="string">"%d "</span>,N[i].id);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+    <a href="/2017/02/18/icpccamp-day5-i/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+  
+  
+    <a href="/2017/02/18/codeforces-398-c/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2017/02/18/codeforces-398-d/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2017 jinjiaodawang
+  
+</div>
+Powered by <a href="http://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"jinjiaodawang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>

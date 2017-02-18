@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  <meta charset="utf-8">
+  
+  <title>icpccamp day1 a | jinjiaodawang&#39;s blog</title>
+  <meta name="author" content="jinjiaodawang">
+  
+  <meta name="description" content="好长时间没更了，要被队友催更了。
+题意是有一个长度为n的序列，每个值为1-n一个序列的boboness为
+然后对所有可能的序列，求boboness的和，mod1e9+7。
+做法是dp。考虑dp[i][j][k] 为第i个位置，最大值是 ，最大值为k。那么最大值不在这一位，可以由最大值在其他位乘上最大">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="icpccamp day1 a"/>
+  <meta property="og:site_name" content="jinjiaodawang&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="jinjiaodawang&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-02-16T12:12:50.000Z"><a href="/2017/02/16/icpccamp-day1-a/">周四, 2月 16 2017, 8:12:50 晚上</a></time>
+
+  
+    <h1 class="title">icpccamp day1 a</h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>好长时间没更了，要被队友催更了。</p>
+<p>题意是有一个长度为n的序列，每个值为1-n<br>一个序列的boboness为<br><img src="https://chart.googleapis.com/chart?cht=tx&chl= \prod_{i = 1}^{n-2} \omega(max(x(i),x(i+1),x(i+2)))" style="border:none;"></p>
+<p>然后对所有可能的序列，求boboness的和，mod1e9+7。</p>
+<p>做法是dp。考虑dp[i][j][k] 为第i个位置，最大值是<img src="https://chart.googleapis.com/chart?cht=tx&chl= x_{i+j}" style="border:none;"> ，最大值为k。<br>那么最大值不在这一位，可以由最大值在其他位乘上最大值的权值，和最大值不在其他位的值的后缀乘以权值转移过来，其他转移同理。</p>
+<p>参考了浙大dalao的代码之后发现其实最大值在哪位无所谓，标记最大值在不在这一位就好了。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">typedef long long ll;</div><div class="line">using namespace std;</div><div class="line">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</div><div class="line">#define clr(a) memset(a,<span class="number">0</span>,sizeof(a))</div><div class="line">#define clrne(a) memset(a,<span class="number">-1</span>,sizeof(a))</div><div class="line">#define clrinf(a) memset(a,<span class="number">0x3f</span>,sizeof(a))</div><div class="line">#define clrneinf(a) memset(a,<span class="number">0xc0</span>,sizeof(a))</div><div class="line">#define pb(a) push_back(a)</div><div class="line">#define maxn <span class="number">2010</span></div><div class="line">#define mod <span class="number">1000000007</span></div><div class="line">#define eps <span class="number">1e-9</span></div><div class="line">#define inf <span class="number">0x7fffffff</span></div><div class="line">ll w[maxn];</div><div class="line">ll f[maxn][maxn][<span class="number">2</span>];</div><div class="line">ll pre[maxn][<span class="number">2</span>];</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">//  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,stdout);</div><div class="line">    int n;</div><div class="line">    while (~scanf(<span class="string">"%d"</span>,&amp;n))</div><div class="line">    &#123;</div><div class="line">        clr(f);</div><div class="line">        clr(pre);</div><div class="line">        for (int i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">            scanf(<span class="string">"%lld"</span>,&amp;w[i]);</div><div class="line">        w[n+<span class="number">1</span>] = <span class="number">0</span>;</div><div class="line">        for (int j = <span class="number">1</span>; j&lt;=n; j++)</div><div class="line">            f[<span class="number">1</span>][j][<span class="number">0</span>] = <span class="number">1</span>,f[<span class="number">1</span>][j][<span class="number">1</span>] = j<span class="number">-1</span>;</div><div class="line">        for (int i = <span class="number">2</span>; i&lt;n; i++)</div><div class="line">        &#123;</div><div class="line">            for (int j = <span class="number">1</span>; j&lt;=n; j++)</div><div class="line">            &#123;</div><div class="line">                pre[j][<span class="number">0</span>] =  (pre[j<span class="number">-1</span>][<span class="number">0</span>]+f[i<span class="number">-1</span>][j][<span class="number">0</span>]*j) <span class="comment">%mod;</span></div><div class="line">                pre[j][<span class="number">1</span>] =  (pre[j<span class="number">-1</span>][<span class="number">1</span>]+f[i<span class="number">-1</span>][j][<span class="number">1</span>]) <span class="comment">%mod;</span></div><div class="line">            &#125;</div><div class="line">            ll suf = <span class="number">0</span>;</div><div class="line">            for (int j = n; j&gt;=<span class="number">1</span>; j--)</div><div class="line">            &#123;</div><div class="line">                suf = (suf+f[i<span class="number">-1</span>][j][<span class="number">0</span>]*w[j]) <span class="comment">%mod;</span></div><div class="line">                f[i][j][<span class="number">0</span>] = (f[i<span class="number">-1</span>][j][<span class="number">1</span>]*w[j]+suf) <span class="comment">%mod;</span></div><div class="line"></div><div class="line">                f[i][j][<span class="number">1</span>] = pre[j<span class="number">-1</span>][<span class="number">1</span>]*w[j]<span class="comment">%mod;</span></div><div class="line">                f[i][j][<span class="number">1</span>] = (f[i][j][<span class="number">1</span>]+pre[j<span class="number">-1</span>][<span class="number">0</span>]*w[j]+suf*(j<span class="number">-1</span>))<span class="comment">%mod;</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        ll ans = <span class="number">0</span>;</div><div class="line">        for (int i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">        &#123;</div><div class="line">            ans = (ans+f[n<span class="number">-1</span>][i][<span class="number">0</span>]*i)<span class="comment">%mod;</span></div><div class="line">            ans = (ans+f[n<span class="number">-1</span>][i][<span class="number">1</span>])<span class="comment">%mod;</span></div><div class="line">        &#125;</div><div class="line">        printf(<span class="string">"%lld\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">    return <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+    <a href="/2017/02/16/icpccamp-day4-a/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+  
+  
+    <a href="/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2017/02/16/icpccamp-day1-a/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2017 jinjiaodawang
+  
+</div>
+Powered by <a href="http://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"jinjiaodawang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>

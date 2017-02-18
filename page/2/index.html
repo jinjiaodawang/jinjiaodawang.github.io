@@ -1,0 +1,535 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | jinjiaodawang&#39;s blog</title>
+  <meta name="author" content="jinjiaodawang">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="jinjiaodawang&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="jinjiaodawang&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <div id="cover">
+	<div id="profile" alt="https://www.tuchuang001.com/images/2017/01/03/258029-106.jpg">
+		<a href="/">
+			<div class="logo">
+				<img src="/logo.png" alt="Profile Picture">
+			</div>
+			<div id="title">jinjiaodawang's blog</div>
+		</a>
+
+		
+			<div id="subtitle">Wir müssen wissen, wir werden wissen</div>
+		
+		 <ul class="my-socials">
+  
+  <li>
+  	<a href="https://github.com/jinjiaodawang" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="mailto:lhp1996@hotmail.com" class="envelope" target="_blank">
+  		<i class="fa fa-envelope"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="tencent://message/?uin=723131478" class="qq" target="_blank">
+  		<i class="fa fa-qq"></i>
+  	</a>
+  </li>
+  
+ 
+</ul>
+	</div>
+</div>
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-02-16T12:12:50.000Z"><a href="/2017/02/16/icpccamp-day1-a/">周四, 2月 16 2017, 8:12:50 晚上</a></time>
+
+  
+    <h1 class="title"><a href="/2017/02/16/icpccamp-day1-a/">icpccamp day1 a</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>好长时间没更了，要被队友催更了。</p>
+<p>题意是有一个长度为n的序列，每个值为1-n<br>一个序列的boboness为<br><img src="https://chart.googleapis.com/chart?cht=tx&chl= \prod_{i = 1}^{n-2} \omega(max(x(i),x(i+1),x(i+2)))" style="border:none;"></p>
+<p>然后对所有可能的序列，求boboness的和，mod1e9+7。</p>
+<p>做法是dp。考虑dp[i][j][k] 为第i个位置，最大值是<img src="https://chart.googleapis.com/chart?cht=tx&chl= x_{i+j}" style="border:none;"> ，最大值为k。<br>那么最大值不在这一位，可以由最大值在其他位乘上最大值的权值，和最大值不在其他位的值的后缀乘以权值转移过来，其他转移同理。</p>
+<p>参考了浙大dalao的代码之后发现其实最大值在哪位无所谓，标记最大值在不在这一位就好了。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">typedef long long ll;</div><div class="line">using namespace std;</div><div class="line">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</div><div class="line">#define clr(a) memset(a,<span class="number">0</span>,sizeof(a))</div><div class="line">#define clrne(a) memset(a,<span class="number">-1</span>,sizeof(a))</div><div class="line">#define clrinf(a) memset(a,<span class="number">0x3f</span>,sizeof(a))</div><div class="line">#define clrneinf(a) memset(a,<span class="number">0xc0</span>,sizeof(a))</div><div class="line">#define pb(a) push_back(a)</div><div class="line">#define maxn <span class="number">2010</span></div><div class="line">#define mod <span class="number">1000000007</span></div><div class="line">#define eps <span class="number">1e-9</span></div><div class="line">#define inf <span class="number">0x7fffffff</span></div><div class="line">ll w[maxn];</div><div class="line">ll f[maxn][maxn][<span class="number">2</span>];</div><div class="line">ll pre[maxn][<span class="number">2</span>];</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">//  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,stdout);</div><div class="line">    int n;</div><div class="line">    while (~scanf(<span class="string">"%d"</span>,&amp;n))</div><div class="line">    &#123;</div><div class="line">        clr(f);</div><div class="line">        clr(pre);</div><div class="line">        for (int i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">            scanf(<span class="string">"%lld"</span>,&amp;w[i]);</div><div class="line">        w[n+<span class="number">1</span>] = <span class="number">0</span>;</div><div class="line">        for (int j = <span class="number">1</span>; j&lt;=n; j++)</div><div class="line">            f[<span class="number">1</span>][j][<span class="number">0</span>] = <span class="number">1</span>,f[<span class="number">1</span>][j][<span class="number">1</span>] = j<span class="number">-1</span>;</div><div class="line">        for (int i = <span class="number">2</span>; i&lt;n; i++)</div><div class="line">        &#123;</div><div class="line">            for (int j = <span class="number">1</span>; j&lt;=n; j++)</div><div class="line">            &#123;</div><div class="line">                pre[j][<span class="number">0</span>] =  (pre[j<span class="number">-1</span>][<span class="number">0</span>]+f[i<span class="number">-1</span>][j][<span class="number">0</span>]*j) <span class="comment">%mod;</span></div><div class="line">                pre[j][<span class="number">1</span>] =  (pre[j<span class="number">-1</span>][<span class="number">1</span>]+f[i<span class="number">-1</span>][j][<span class="number">1</span>]) <span class="comment">%mod;</span></div><div class="line">            &#125;</div><div class="line">            ll suf = <span class="number">0</span>;</div><div class="line">            for (int j = n; j&gt;=<span class="number">1</span>; j--)</div><div class="line">            &#123;</div><div class="line">                suf = (suf+f[i<span class="number">-1</span>][j][<span class="number">0</span>]*w[j]) <span class="comment">%mod;</span></div><div class="line">                f[i][j][<span class="number">0</span>] = (f[i<span class="number">-1</span>][j][<span class="number">1</span>]*w[j]+suf) <span class="comment">%mod;</span></div><div class="line"></div><div class="line">                f[i][j][<span class="number">1</span>] = pre[j<span class="number">-1</span>][<span class="number">1</span>]*w[j]<span class="comment">%mod;</span></div><div class="line">                f[i][j][<span class="number">1</span>] = (f[i][j][<span class="number">1</span>]+pre[j<span class="number">-1</span>][<span class="number">0</span>]*w[j]+suf*(j<span class="number">-1</span>))<span class="comment">%mod;</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        ll ans = <span class="number">0</span>;</div><div class="line">        for (int i = <span class="number">1</span>; i&lt;=n; i++)</div><div class="line">        &#123;</div><div class="line">            ans = (ans+f[n<span class="number">-1</span>][i][<span class="number">0</span>]*i)<span class="comment">%mod;</span></div><div class="line">            ans = (ans+f[n<span class="number">-1</span>][i][<span class="number">1</span>])<span class="comment">%mod;</span></div><div class="line">        &#125;</div><div class="line">        printf(<span class="string">"%lld\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">    return <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2017/02/16/icpccamp-day1-a/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright">
+            <a href="https://jinjiaodawang.github.io/2017/02/16/icpccamp-day1-a/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/02/16/icpccamp-day1-a/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-01-15T19:15:13.000Z"><a href="/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/">周一, 1月 16 2017, 3:15:13 凌晨</a></time>
+
+  
+    <h1 class="title"><a href="/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/">8VC Venture Cup 2017  Elimination Round D</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>没想到再次掉了个爽。</p>
+<p><a href="http://codeforces.com/contest/755/problem/D" target="_blank" rel="external">题目链接</a></p>
+<p><img src="https://www.tuchuang001.com/images/2017/01/16/1.png" alt="1.png" border="0"><br><img src="https://www.tuchuang001.com/images/2017/01/16/2.png" alt="2.png" border="0"><br><img src="https://www.tuchuang001.com/images/2017/01/16/3.png" alt="3.png" border="0"><br><img src="https://www.tuchuang001.com/images/2017/01/16/4.png" alt="4.png" border="0"><br><img src="https://www.tuchuang001.com/images/2017/01/16/5.png" alt="5.png" border="0"></p>
+<p>题目大意是有一个凸n边形，取一个k使得与n互素，从第一个点开始，向第1+k个点连边，然后以1+k为起点再进行这个操作共n次，输出每一次得到的多边形内的区域个数。保证三条对角线不会交于一点。</p>
+<p>有了这个条件就可以看到链接一条边新增的区域个数是这条边所跨过的边的数目+1</p>
+<p>用树状数组维护每个点连出去的边的数目，要注意当这条边跨过中心的时候（即2*k&gt;n）要计算凸多边形剩下的那部分。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">typedef long long ll;</div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn 1000100</span></div><div class="line"><span class="comment">#define mod 1000000007</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line"><span class="comment">#define lowbit(a) (a)&amp;(-a)</span></div><div class="line">ll tot;</div><div class="line">ll t[maxn];</div><div class="line">void add(<span class="keyword">int</span> p,<span class="keyword">int</span> v)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> (; p&lt;=tot; p+=lowbit(p))</div><div class="line">        t[p]+=v;</div><div class="line">&#125;</div><div class="line">ll sum (<span class="keyword">int</span> p)</div><div class="line">&#123;</div><div class="line">    ll res = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (; p; p-=lowbit(p)) res+=t[p];</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span> main()</div><div class="line">&#123;</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,stdout);</div><div class="line">    <span class="keyword">int</span> n,k;</div><div class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</div><div class="line">    k = min(k,n-k);</div><div class="line">    <span class="keyword">int</span> now = <span class="number">1</span>;</div><div class="line">    ll ans = <span class="number">1</span>;</div><div class="line">    tot = n;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (now+k&gt;n)</div><div class="line">        &#123;</div><div class="line">            ll temp = sum(n)-sum(now);</div><div class="line">            temp+=sum((now+k)-n-<span class="number">1</span>);</div><div class="line">            ans+=temp+<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> ans += sum(now+k-<span class="number">1</span>) - sum(now)+<span class="number">1</span>;</div><div class="line">        add(now,<span class="number">1</span>);</div><div class="line">        add((now+k-<span class="number">1</span>)%n+<span class="number">1</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">printf</span>(<span class="string">"%I64d "</span>,ans);</div><div class="line">        now+=k;</div><div class="line">        <span class="keyword">if</span> (now&gt;n) now-=n;</div><div class="line"><span class="regexp">//</span>        cout&lt;&lt;<span class="string">"!!!"</span>&lt;&lt;now&lt;&lt;endl;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright">
+            <a href="https://jinjiaodawang.github.io/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/16/8VC-Venture-Cup-2017-Elimination-Round-D/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-01-13T18:17:24.000Z"><a href="/2017/01/14/codeforces-391-E/">周六, 1月 14 2017, 2:17:24 凌晨</a></time>
+
+  
+    <h1 class="title"><a href="/2017/01/14/codeforces-391-E/">codeforces #391 E</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://codeforces.com/contest/757/problem/E" target="_blank" rel="external">题目链接</a></p>
+<p>这个题目形式明显是狄利克雷卷积。先分析<img src="https://chart.googleapis.com/chart?cht=tx&chl= f_0(i)" style="border:none;">。有</p>
+<p><img src="https://chart.googleapis.com/chart?cht=tx&chl= f_0(i) = 2^k" style="border:none;"></p>
+<p>其中k是i的素因子种数。那么这是一个积性函数。</p>
+<p>那么<img src="https://chart.googleapis.com/chart?cht=tx&chl= f_r(i)" style="border:none;">就是上述函数卷r-1次常数函数。</p>
+<p>这里用到一个很重要的姿势，积性函数的狄利克雷卷积依然是积性函数（完全积性函数的狄利克雷卷积得到的却不一定是完全积性函数）。所以答案就是</p>
+<p><img src="https://chart.googleapis.com/chart?cht=tx&chl= f_r(n) = f_r(p_1^{k1} )* f_r(p_2^{k2}) * ... * f_r(p_n^{kn})  " style="border:none;"></p>
+<p>而且可以知道<img src="https://chart.googleapis.com/chart?cht=tx&chl= f_r(p^k) " style="border:none;">只与k有关。这是可以预处理的。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">typedef long long ll;</div><div class="line"><span class="keyword">using</span> namespace std;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn 10001</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line"><span class="keyword">const</span> ll <span class="keyword">mod</span> = <span class="number">1</span>e9+<span class="number">7</span>;</div><div class="line"><span class="built_in">bool</span> isprime[<span class="number">1000010</span>];</div><div class="line"><span class="built_in">int</span> p[<span class="number">100010</span>];</div><div class="line"><span class="built_in">int</span> minp[<span class="number">1000010</span>];</div><div class="line"><span class="built_in">int</span> cnt = <span class="number">0</span>;</div><div class="line">ll dp[<span class="number">1000010</span>][<span class="number">20</span>];</div><div class="line"><span class="built_in">void</span> init()</div><div class="line">&#123;</div><div class="line">    memset(isprime,<span class="number">1</span>,sizeof(isprime));</div><div class="line">    isprime[<span class="number">1</span>] = isprime[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">2</span>;i&lt;=<span class="number">1000000</span>;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (isprime[i]) p[++cnt] = i,minp[i] = i;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">1</span>;j&lt;=cnt&amp;&amp;p[j]&lt;=<span class="number">1000000</span>/i;j++)</div><div class="line">        &#123;</div><div class="line">            isprime[i*p[j]] = <span class="number">0</span>;</div><div class="line">            minp[i*p[j]] = p[j];</div><div class="line">            <span class="keyword">if</span> (i%p[j]==<span class="number">0</span>) <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i&lt;<span class="number">20</span>;i++)</div><div class="line">        dp[<span class="number">0</span>][i] = <span class="number">2</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++)</div><div class="line">    &#123;</div><div class="line">        dp[i][<span class="number">0</span>] = dp[i-<span class="number">1</span>][<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">1</span>;j&lt;<span class="number">20</span>;j++)</div><div class="line">            dp[i][j] = (dp[i-<span class="number">1</span>][j]+dp[i][j-<span class="number">1</span>])%<span class="keyword">mod</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">int</span> main()</div><div class="line">&#123;</div><div class="line">//  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,<span class="literal">stdin</span>);</div><div class="line">//  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,<span class="literal">stdout</span>);</div><div class="line">    init();</div><div class="line">    <span class="built_in">int</span> T;</div><div class="line">    scanf(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="built_in">int</span> n,r;</div><div class="line">    <span class="keyword">while</span> (T--)</div><div class="line">    &#123;</div><div class="line">        scanf(<span class="string">"%d%d"</span>,&amp;r,&amp;n);</div><div class="line">        <span class="built_in">int</span> temp = n;</div><div class="line">        ll ans = <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (temp&gt;<span class="number">1</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">int</span> pp = minp[temp];</div><div class="line">            <span class="built_in">int</span> cnt = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (minp[temp]==pp)</div><div class="line">            &#123;</div><div class="line">                temp/=minp[temp];</div><div class="line">                cnt++;</div><div class="line">            &#125;</div><div class="line">            ans = (ans*dp[r][cnt])%<span class="keyword">mod</span>;</div><div class="line">        &#125;</div><div class="line">        printf(<span class="string">"%lld\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2017/01/14/codeforces-391-E/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright">
+            <a href="https://jinjiaodawang.github.io/2017/01/14/codeforces-391-E/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/14/codeforces-391-E/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-01-12T18:21:44.000Z"><a href="/2017/01/13/codeforces-391-d/">周五, 1月 13 2017, 2:21:44 凌晨</a></time>
+
+  
+    <h1 class="title"><a href="/2017/01/13/codeforces-391-d/">codeforces #391 c</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>这一场挺难的（对我来说）。<br><a href="http://codeforces.com/contest/757/problem/C" target="_blank" rel="external">题目链接</a></p>
+<p>题意大致是你有n个进化池来进化你的神奇宝贝。总共有m种不同的神奇宝贝。<br>进化以后要满足下列性质。</p>
+<ol>
+<li>如果i与j不是同一种神奇宝贝，进化以后也不是同一种。如果i与j是一种神奇宝贝，那么进化后依然是同一种数码宝贝。</li>
+<li>在一个进化池里所有的数码宝贝在全部进化后，所有种类的神奇宝贝的数量必须不变。</li>
+</ol>
+<p>求满足条件的进化法则种数，结果mod1e9+7.</p>
+<p>设进化以后i的种类为<code>f(i)</code>，通过分析条件一可以知道这是一种一一映射。也就是说f的实质是一种排列。</p>
+<p>若干种等价的神奇宝贝在各个进化池里的出现次数都相等。那么将m分解为若干个等价的集合。答案显然是<br><img src="https://chart.googleapis.com/chart?cht=tx&chl= \prod^k_0  ai!" style="border:none;"></p>
+<p>即分解后每个集合的个数的阶乘连乘。</p>
+<p>用hash记录每个种类的神奇宝贝在n个进化池里出现的次序。为了防撞取了两个1e9级别的素数。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">typedef long long ll;</div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn 10001</span></div><div class="line"><span class="comment">#define mod 1000000007</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line">ll hasha[<span class="number">1000100</span>],hashb[<span class="number">1000100</span>];</div><div class="line">ll p1 = <span class="number">1</span>e9+<span class="number">123</span>;</div><div class="line">ll p2 = <span class="number">1</span>e9+<span class="number">181</span>;</div><div class="line">ll d = <span class="number">10007</span>;</div><div class="line"><span class="keyword">map</span> &lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;,<span class="keyword">int</span>&gt; mp;</div><div class="line"><span class="keyword">int</span> n,<span class="keyword">m</span>;</div><div class="line">ll fac[<span class="number">1000010</span>];</div><div class="line"><span class="keyword">int</span> main()</div><div class="line">&#123;</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line"><span class="regexp">//</span>  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,stdout);</div><div class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;<span class="keyword">m</span>);</div><div class="line">    ll pp1 = <span class="number">1</span>,pp2 = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> temp,cnt;</div><div class="line">        scanf(<span class="string">"%d"</span>,&amp;cnt);</div><div class="line">        <span class="keyword">while</span> (cnt--)</div><div class="line">        &#123;</div><div class="line">            scanf(<span class="string">"%d"</span>,&amp;temp);</div><div class="line">            hasha[temp]+=pp1;</div><div class="line">            hasha[temp]%=p1;</div><div class="line">            hashb[temp]+=pp2;</div><div class="line">            hashb[temp]%=p2;</div><div class="line">        &#125;</div><div class="line">        pp1 = (pp1*d)%p1;</div><div class="line">        pp2 = (pp2*d)%p2;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="keyword">m</span>; i++)</div><div class="line">        mp[make_pair(hasha[i],hashb[i])]++;</div><div class="line">    <span class="keyword">map</span> &lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;,<span class="keyword">int</span>&gt;::iterator it = mp.begin();</div><div class="line">    fac[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    ll ans = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="number">1000000</span>; i++)</div><div class="line">    &#123;</div><div class="line">        fac[i] = fac[i-<span class="number">1</span>]*i;</div><div class="line">        fac[i]%=mod;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (; it!=mp.end(); it++)</div><div class="line">        ans = (ans*fac[it-&gt;second])%mod;</div><div class="line">    <span class="keyword">printf</span>(<span class="string">"%I64d\n"</span>,ans);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2017/01/13/codeforces-391-d/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright">
+            <a href="https://jinjiaodawang.github.io/2017/01/13/codeforces-391-d/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/13/codeforces-391-d/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2017-01-07T07:42:33.000Z"><a href="/2017/01/07/codeforces-390-d/">周六, 1月 7 2017, 3:42:33 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2017/01/07/codeforces-390-d/">codeforces #390 d</a></h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/题解/">-题解</a>
+  </div>
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>这一场告诉我必须要经常打cf</p>
+<p>不然就会忘了自己有多菜</p>
+<p>其实B题都掉了，但是我不想补了。</p>
+<p><a href="http://codeforces.com/contest/754/problem/D" target="_blank" rel="external">题目链接</a></p>
+<p>这道题一开始naive了，离散化一遍就开始扫。实际上是跟以前做的一题混了。</p>
+<p>题意大致是给你n个区间，从中取k个使得区间交最大，输出最大值与方案</p>
+<p>思路大概就是先离散化，然后知道答案一定是一个连续的区间，然后枚举左端点p，将l&lt;p的线段全部加进来，二分线段数大于等于k的右端点。用树状数组维护。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include &lt;vector&gt;</span></div><div class="line"><span class="comment">#include &lt;algorithm&gt;</span></div><div class="line"></div><div class="line">typedef long long ll;</div><div class="line"><span class="keyword">using</span> namespace std;</div><div class="line"><span class="comment">#define debug(a) cout&lt;&lt;a&lt;&lt;endl</span></div><div class="line"><span class="comment">#define clr(a) memset(a,0,sizeof(a))</span></div><div class="line"><span class="comment">#define clrne(a) memset(a,-1,sizeof(a))</span></div><div class="line"><span class="comment">#define clrinf(a) memset(a,0x3f,sizeof(a))</span></div><div class="line"><span class="comment">#define clrneinf(a) memset(a,0xc0,sizeof(a))</span></div><div class="line"><span class="comment">#define pb(a) push_back(a)</span></div><div class="line"><span class="comment">#define maxn (300010&lt;&lt;1)</span></div><div class="line"><span class="comment">#define mod 1000000007</span></div><div class="line"><span class="comment">#define eps 1e-9</span></div><div class="line"><span class="comment">#define inf 0x7fffffff</span></div><div class="line"><span class="comment">#define lowbit(a) (a)&amp;(-a)</span></div><div class="line"><span class="built_in">int</span> tot;</div><div class="line"><span class="built_in">int</span> t[maxn];</div><div class="line"><span class="built_in">void</span> add(<span class="built_in">int</span> p,<span class="built_in">int</span> v)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> (; p&lt;=tot; p+=lowbit(p))</div><div class="line">        t[p]+=v;</div><div class="line">&#125;</div><div class="line"><span class="built_in">int</span> sum (<span class="built_in">int</span> p)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">int</span> res = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (; p; p-=lowbit(p)) res+=t[p];</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line">ll a[maxn];</div><div class="line">ll b[maxn];</div><div class="line">vector &lt;<span class="built_in">int</span>&gt; <span class="keyword">in</span>[maxn];</div><div class="line"><span class="built_in">int</span> <span class="keyword">out</span>[maxn];</div><div class="line">vector &lt;<span class="built_in">int</span>&gt; xx;</div><div class="line"><span class="built_in">int</span> main()</div><div class="line">&#123;</div><div class="line">//  freopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>,<span class="literal">stdin</span>);</div><div class="line">//  freopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>,<span class="literal">stdout</span>);</div><div class="line">    <span class="built_in">int</span> n,k;</div><div class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        scanf(<span class="string">"%I64d%I64d"</span>,&amp;a[i],&amp;b[i]);</div><div class="line">        xx.push_back(a[i]);</div><div class="line">        xx.push_back(b[i]);</div><div class="line">    &#125;</div><div class="line">    sort(xx.begin(),xx.<span class="keyword">end</span>());</div><div class="line">    xx.erase(unique(xx.begin(),xx.<span class="keyword">end</span>()),xx.<span class="keyword">end</span>());</div><div class="line">    tot = xx.size();</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        a[i] = lower_bound(xx.begin(),xx.<span class="keyword">end</span>(),a[i])-xx.begin()+<span class="number">1</span>;</div><div class="line">        b[i] = lower_bound(xx.begin(),xx.<span class="keyword">end</span>(),b[i])-xx.begin()+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">in</span>[a[i]].pb(b[i]);</div><div class="line">        <span class="keyword">out</span>[b[i]]++;</div><div class="line">    &#125;</div><div class="line">//    <span class="keyword">for</span> (<span class="built_in">int</span> i  =<span class="number">1</span>; i&lt;=tot; i++)</div><div class="line">//        printf(<span class="string">"%d %d\n"</span>,<span class="keyword">in</span>[i].size(),<span class="keyword">out</span>[i]);</div><div class="line">    <span class="built_in">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="built_in">int</span> ansl = -<span class="number">1</span>,ansr = -<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i&lt;=tot; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (i&gt;<span class="number">1</span>) add(i-<span class="number">1</span>,-<span class="keyword">out</span>[i-<span class="number">1</span>]);</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>,sz = <span class="keyword">in</span>[i].size(); j&lt;sz; j++ )</div><div class="line">            add(<span class="keyword">in</span>[i][j],<span class="number">1</span>);</div><div class="line">        <span class="built_in">int</span> l = <span class="number">1</span>,r = tot+<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (r-l&gt;<span class="number">1</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (sum(tot)-sum(mid-<span class="number">1</span>)&gt;=k) l = mid;</div><div class="line">            <span class="keyword">else</span> r = mid;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (sum(tot)-sum(l-<span class="number">1</span>)&gt;=k&amp;&amp;xx[l-<span class="number">1</span>]-xx[i-<span class="number">1</span>]+<span class="number">1</span>&gt;ans)</div><div class="line">        &#123;</div><div class="line">            ans = xx[l-<span class="number">1</span>]-xx[i-<span class="number">1</span>]+<span class="number">1</span>;</div><div class="line">            ansl = xx[i-<span class="number">1</span>];</div><div class="line">            ansr = xx[l-<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (ans==<span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        printf(<span class="string">"0\n"</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;k; i++)</div><div class="line">            printf(<span class="string">"%d\n"</span>,i+<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">int</span> num = <span class="number">0</span>;</div><div class="line">    printf(<span class="string">"%d\n"</span>,ans);</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;num&lt;k&amp;&amp; i&lt;n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (xx[a[i]-<span class="number">1</span>]&lt;=ansl&amp;&amp;xx[b[i]-<span class="number">1</span>]&gt;=ansr) num++,printf(<span class="string">"%d "</span>,i+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2017/01/07/codeforces-390-d/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright">
+            <a href="https://jinjiaodawang.github.io/2017/01/07/codeforces-390-d/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/07/codeforces-390-d/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+<script src="/js/jquery.anystretch.min.js"></script>
+<script src="/js/cover.js"></script>
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2017 jinjiaodawang
+  
+</div>
+Powered by <a href="http://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"jinjiaodawang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>
